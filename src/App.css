@@ -1,38 +1,108 @@
-.App {
+body{
+  background: #d8b14d;
   text-align: center;
+  font-family: Lato,sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container{
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 90%;
+  height: auto;
+  border: 1px solid whitesmoke;
+  border-radius: 15px;
+  background-color:whitesmoke ;
 }
+.container-item{
+  width: 80vh;
+  
+  background: whitesmoke;
+  margin: auto;
+  margin-top: 12%;
+  border: 2px solid whitesmoke;
+  border-radius: 10px;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
+.whQuestion{
+  font-size: small;
+  color:#d8b14d;
+  font-weight: 600;
+}
+.question{
+  font-size: x-large;
+  color: black;
+  font-weight: 800;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+}
+.answer{
+  margin-top: 5%;
+}
+.answer-item{
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  width: 85%;
+  margin: auto;
+  border: 1px solid #EEEEEE;
+  border-radius: 20px;
+  background-color:#EEEEEE ;
+  margin-top: 5%;
+  padding: 1%;
+  font-size: small;
+  color: black;
+  font-weight: 500;
 
-.App-link {
-  color: #61dafb;
 }
+.next-question{
+  width: 30%;
+  height: auto;
+  padding: 2%;
+  margin-top: 10%;
+  background-color:#d8b14d ;
+  border:2px solid #d8b14d;
+  border-radius: 5px;
+  color: whitesmoke;
+  margin-bottom: 15%;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.previous-question{
+  border: #EEEEEE;
+  border-radius: 5px;
+  padding: 1%;
+  color: rgb(88, 83, 83);
+  background-color: #EEEEEE;
+  display: flex;
+  margin-top: 2%;
+  margin-left: 2%;
+  font-weight: 600;
+
+}
+input{
+  justify-content: center;
+  margin-right:2% ;
+}
+.steps{
+  width: 95%;
+  height: 1vh;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 15px;
+
+}
+.steps-item{
+  border: 1px solid #d8b14d;
+  border-radius: 5px;
+  width: 20%;
+  height: 3px;
+  background-color: #d8b14d;
+  margin-left: 1%;
+}
+.steps-item-1{
+  border: 1px solid #EEEEEE;
+  border-radius: 5px;
+  width: 20%;
+  height: 3px;
+  background-color: #EEEEEE;
+  margin-left: 1%;
 }

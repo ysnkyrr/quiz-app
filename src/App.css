@@ -1,9 +1,9 @@
-body{
+body {
   background: #d8b14d;
   text-align: center;
-  font-family: Lato,sans-serif;
+  font-family: Lato, sans-serif;
 }
-.container{
+.container {
   margin: auto;
   margin-top: 5%;
   margin-bottom: 5%;
@@ -11,86 +11,86 @@ body{
   height: auto;
   border: 1px solid whitesmoke;
   border-radius: 15px;
-  background-color:whitesmoke ;
+  background-color: whitesmoke;
 }
-.container-item{
+.container-item {
   width: 80vh;
-  
+
   background: whitesmoke;
   margin: auto;
   margin-top: 12%;
   border: 2px solid whitesmoke;
   border-radius: 10px;
-
 }
-.whQuestion{
+.whQuestion {
   font-size: small;
-  color:#d8b14d;
+  color: #d8b14d;
   font-weight: 600;
 }
-.question{
+.question {
   font-size: x-large;
   color: black;
   font-weight: 800;
-
 }
-.answer{
+button {
+  cursor: pointer;
+}
+.answer {
+  display: flex;
+  flex-direction: column;
   margin-top: 5%;
 }
-.answer-item{
+.answer-item {
   display: flex;
+
   align-items: center;
   justify-content: center;
   width: auto;
   margin: auto;
-  border: 1px solid #EEEEEE;
+  border: 1px solid #eeeeee;
   border-radius: 20px;
-  background-color:#EEEEEE ;
+  background-color: #eeeeee;
   margin-top: 5%;
   padding: 1%;
   font-size: small;
   color: black;
   font-weight: 500;
-
 }
-.next-question{
+.next-question {
   width: 30%;
   height: auto;
   padding: 2%;
   margin-top: 10%;
-  background-color:#d8b14d ;
-  border:2px solid #d8b14d;
+  background-color: #d8b14d;
+  border: 2px solid #d8b14d;
   border-radius: 5px;
   color: whitesmoke;
   margin-bottom: 15%;
-
 }
-.previous-question{
-  border: #EEEEEE;
+.previous-question {
+  border: #eeeeee;
   border-radius: 5px;
   padding: 1%;
   color: rgb(88, 83, 83);
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   display: flex;
   margin-top: 2%;
   margin-left: 2%;
   font-weight: 600;
-
 }
-input{
+input {
   justify-content: center;
-  margin-right:2% ;
+  margin-right: 2%;
 }
-.steps{
+.steps {
   width: 95%;
   height: 1vh;
   display: flex;
   flex-direction: row;
   margin: auto;
   margin-top: 15px;
-
 }
-.steps-item{
+.steps-item {
   border: 1px solid #d8b14d;
   border-radius: 5px;
   width: 20%;
@@ -98,11 +98,11 @@ input{
   background-color: #d8b14d;
   margin-left: 1%;
 }
-.steps-item-1{
-  border: 1px solid #EEEEEE;
+.steps-item-1 {
+  border: 1px solid #eeeeee;
   border-radius: 5px;
-  width: 20%;
+  width: 25%;
   height: 3px;
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   margin-left: 1%;
 }

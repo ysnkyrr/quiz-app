@@ -1,102 +1,99 @@
-import React, { useRef } from 'react'
-import { useState } from 'react';
-
+import { useState } from "react";
 
 export default function Container() {
-    const questions = [
-        {
-            questionText: 'Aylin in en sevdiği renk nedir?',
-            answerOptions: [
-                { asnwerText: 'Pembe', isCorrect: false },
-                { asnwerText: 'Yeşil', isCorrect: false },
-                { asnwerText: 'Siyah', isCorrect: true },
-                { asnwerText: 'Mor', isCorrect: false }
-            ],
-        },
-        {
-            questionText: 'Aylin kaç yaşındadır?',
-            answerOptions: [
-                { asnwerText: '18', isCorrect: false },
-                { asnwerText: '20', isCorrect: false },
-                { asnwerText: '22', isCorrect: false },
-                { asnwerText: '24', isCorrect: true }
-            ],
-        },
-        {
-            questionText: 'Aylin in en sevdiği yemek nedir?',
-            answerOptions: [
-                { asnwerText: 'Lahana', isCorrect: false },
-                { asnwerText: 'Patates', isCorrect: false },
-                { asnwerText: 'Yasinin yaptığı iskender', isCorrect: true },
-                { asnwerText: 'Ispanak', isCorrect: false }
-            ],
-        },
-        {
-            questionText: 'Ne renk giyinmeyi sever?',
-            answerOptions: [
-                { asnwerText: 'Lacivert', isCorrect: false },
-                { asnwerText: 'Aslanağzı', isCorrect: false },
-                { asnwerText: 'Yavuağzı', isCorrect: true },
-                { asnwerText: 'Siyah', isCorrect: false }
-            ],
-        },
-    ]
-    const answersRef = useRef(null)
-    const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [secilmisSoru, setSecilmisSoru] = useState(0);
+  const [dugruCevap, setDogruCevap] = useState(true);
 
-    const handleAnswerButtonClick = () => {
-        // const nextQuestion = currentQuestion + 1;
-        // if (nextQuestion < questions.length) {
-        //     setCurrentQuestion(nextQuestion)
-        // } else {
-        //     alert("Sınavın Sonuna Geldin Dostum!!")
-        // };
-        const answerİtem = answersRef.current.children
-        for (
-            let answer of answerİtem
-        ) {
-            const radioBtn = answer.children[0]
-            for (
-                let radio of radioBtn
-            ) { console.log(radio.children[0]) }
-
-        }
-
-
+  const dogruSay = () => {
+    if (sorular.cevaplar.dogru = true) {
+      setDogruCevap(dugruCevap+1)
+      alert("doğru cevap")
     }
-    const previousButtonClick = () => {
-        const previousQuestion = currentQuestion - 1;
-        if (0 < previousQuestion) {
-            setCurrentQuestion(previousQuestion)
-        } else {
-            alert("Sınavın Başına Geldin Dostum!!")
-        }
+  };
+
+  function sonrakiSoruu() {
+    const sonrakiSoru = secilmisSoru + 1;
+    if (sonrakiSoru < sorular.length) {
+      setSecilmisSoru(sonrakiSoru);
+    } else {alert("Sınavınız Bitmiştir")
     }
+  }
+  function oncekiSoruu() {
+    const oncekiSoru = secilmisSoru -1;
+    if (oncekiSoru < sorular.length){
+        setSecilmisSoru(oncekiSoru);   
+    }
+  }
+  const sorular = [
+    {
+      soru: "En sevdiğim renk nedir?",
+      cevaplar: [
+        { cevap: "siyah", dogru: true },
+        { cevap: "mavi", dogru: false },
+        { cevap: "kırmızı", dogru: false },
+        { cevap: "yeşil", dogru: false },
+      ],
+    },
+    {
+      soru: "Doğum günüm ne zaman?",
+      cevaplar: [
+        { cevap: "11 Ekim", dogru: false },
+        { cevap: "6 Ocak", dogru: false },
+        { cevap: "13 Kasım", dogru: true },
+        { cevap: "21 Temmuz", dogru: false },
+      ],
+    },
+    {
+      soru: "Kaç yaşındayım?",
+      cevaplar: [
+        { cevap: "22", dogru: false },
+        { cevap: "19", dogru: false },
+        { cevap: "25", dogru: true },
+        { cevap: "21", dogru: false },
+      ],
+    },
+    {
+      soru: "Arabayı nasıl kullanırım?",
+      cevaplar: [
+        { cevap: "Manuel,yavaş", dogru: false },
+        { cevap: "Otomatik,yavaş", dogru: false },
+        { cevap: "Otomatik,hızlı", dogru: false },
+        { cevap: "Manuel,hızlı", dogru: true },
+      ],
+    },
+  ];
 
-    return (
-        <div className='container'>
-
-            {/* <div className='steps'>
-                <div className='steps-item'></div>
-                <div className='steps-item'></div>
-                <div className='steps-item-1'></div>
-                <div className='steps-item-1'></div>
-                <div className='steps-item-1'></div>
-                <div className='steps-item-1'></div>
-            </div> */}
-            <button className='previous-question' onClick={previousButtonClick}> ← Previous </button>
-            <div className='container-item'>
-                <div className='whQuestion'><p>QUESTİON {questions.length}/6</p></div>
-                <div className='question'>{questions[currentQuestion].questionText}</div>
-                <div className='answer' ref={answersRef}>
-                    {questions[currentQuestion].answerOptions.map((answerOptions) =>
-                        (<div className='answer-item'><input type="radio" id={"question" + currentQuestion} /><label >{answerOptions.asnwerText}</label></div>))}
-
-
-
-                </div>
-                <button className='next-question' onClick={handleAnswerButtonClick}>Next Question →</button>
-            </div>
+  return (
+    <div className="appp">
+      <div className="container">
+        <div className="steps">
+          <div className="steps-item-1"></div>
+          <div className="steps-item-1"></div>
+          <div className="steps-item-1"></div>
+          <div className="steps-item-1"></div>
         </div>
-    )
+        <button className="previous-question" onClick={oncekiSoruu}>
+          Previous Question
+        </button>
+        <div className="container-item">
+          <div className="whQuestion">
+            <p>QUESTİON</p>
+          </div>
+          <div className="question">
+            <p>{sorular[secilmisSoru].soru}</p>
+          </div>
+          <div className="answer">
+            {sorular[secilmisSoru].cevaplar.map((cevaplar) => (
+              <button onClick={dogruSay}>
+                <label>{cevaplar.cevap}</label>
+              </button>
+            ))}
+          </div>
+          <button className="next-question" onClick={sonrakiSoruu}>
+            Next Question →<p>{setDogruCevap}</p>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }

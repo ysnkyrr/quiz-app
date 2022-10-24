@@ -1,37 +1,55 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Login from "./Login";
 
 export default function Container() {
   const [secilmisSoru, setSecilmisSoru] = useState(0);
-  const [dugruCevap, setDogruCevap] = useState(true);
+  const [dugruCevap, setDogruCevap] = useState(0);
+  const [currentAnswer, setCurrentAnswer] = useState(false);
+  const [loginItem, setLoginItem] = useState({
+    isLogin: false,
+    name: "",
+    email: "",
+  });
 
-  const dogruSay = () => {
-    if (sorular.cevaplar.dogru = true) {
-      setDogruCevap(dugruCevap+1)
-      alert("doğru cevap")
+  useEffect(() => {
+    const item = localStorage.getItem("counter");
+    if (item) {
+      setSecilmisSoru(JSON.parse(item).step);
+      setDogruCevap(JSON.parse(item).totalCorrect);
     }
-  };
+  }, []);
 
   function sonrakiSoruu() {
     const sonrakiSoru = secilmisSoru + 1;
-    if (sonrakiSoru < sorular.length) {
-      setSecilmisSoru(sonrakiSoru);
-    } else {alert("Sınavınız Bitmiştir")
-    }
+    currentAnswer && setDogruCevap(dugruCevap + 1);
+    setSecilmisSoru(sonrakiSoru);
+    setCurrentAnswer(false);
+    const items = {
+      step: secilmisSoru + 1,
+      totalCorrect: currentAnswer ? dugruCevap + 1 : dugruCevap,
+    };
+    localStorage.setItem("counter", JSON.stringify(items));
   }
+  const refresh = () => {
+    localStorage.removeItem("counter");
+    setDogruCevap(0);
+    setSecilmisSoru(0);
+  };
   function oncekiSoruu() {
-    const oncekiSoru = secilmisSoru -1;
-    if (oncekiSoru < sorular.length){
-        setSecilmisSoru(oncekiSoru);   
+    const oncekiSoru = secilmisSoru - 1;
+    if (secilmisSoru > 0) {
+      setSecilmisSoru(oncekiSoru);
     }
   }
+
   const sorular = [
     {
       soru: "En sevdiğim renk nedir?",
       cevaplar: [
-        { cevap: "siyah", dogru: true },
-        { cevap: "mavi", dogru: false },
-        { cevap: "kırmızı", dogru: false },
-        { cevap: "yeşil", dogru: false },
+        { cevap: "Siyah", dogru: true },
+        { cevap: "Mavi", dogru: false },
+        { cevap: "Kırmızı", dogru: false },
+        { cevap: "Yeşil", dogru: false },
       ],
     },
     {
@@ -66,33 +84,60 @@ export default function Container() {
   return (
     <div className="appp">
       <div className="container">
-        <div className="steps">
-          <div className="steps-item-1"></div>
-          <div className="steps-item-1"></div>
-          <div className="steps-item-1"></div>
-          <div className="steps-item-1"></div>
-        </div>
-        <button className="previous-question" onClick={oncekiSoruu}>
-          Previous Question
-        </button>
-        <div className="container-item">
-          <div className="whQuestion">
-            <p>QUESTİON</p>
-          </div>
-          <div className="question">
-            <p>{sorular[secilmisSoru].soru}</p>
-          </div>
-          <div className="answer">
-            {sorular[secilmisSoru].cevaplar.map((cevaplar) => (
-              <button onClick={dogruSay}>
-                <label>{cevaplar.cevap}</label>
+        {loginItem.isLogin === false ? (
+          <Login loginItem={loginItem} setLoginItem={setLoginItem} />
+        ) : sorular.length > secilmisSoru ? (
+          <>
+            <div className="steps">
+              {sorular.map((item, index) => (
+                <div
+                  className={`step-item ${
+                    index <= secilmisSoru ? "active" : ""
+                  }`}
+                ></div>
+              ))}
+            </div>
+            <button className="previous-question" onClick={oncekiSoruu}>
+              Previous Question
+            </button>
+
+            <div className="container-item">
+              <div className="whQuestion">
+                <p>QUESTİON</p>
+              </div>
+              <div className="question">
+                <p>{sorular[secilmisSoru].soru}</p>
+              </div>
+              <div className="answer">
+                {sorular[secilmisSoru].cevaplar.map((cevaplar, index) => (
+                  <button
+                    className="answer-item"
+                    onClick={() => setCurrentAnswer(cevaplar.dogru)}
+                  >
+                    {cevaplar.cevap}
+                  </button>
+                ))}
+              </div>
+              <button
+                className="next-question"
+                onClick={sonrakiSoruu}
+                onchange=""
+              >
+                Next Question →<p></p>
               </button>
-            ))}
-          </div>
-          <button className="next-question" onClick={sonrakiSoruu}>
-            Next Question →<p>{setDogruCevap}</p>
-          </button>
-        </div>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="result">
+              <h1>SINAV SONUCU</h1>
+              <h2>
+                {sorular.length}/{dugruCevap}
+              </h2>
+              <button onClick={refresh}>Tekrar Çözmek İster misin?</button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

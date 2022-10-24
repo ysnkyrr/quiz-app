@@ -45,9 +45,9 @@ button {
 
   align-items: center;
   justify-content: center;
-  width: auto;
+  width: 50vh;
   margin: auto;
-  border: 1px solid #eeeeee;
+  border: 1px solid #252525;
   border-radius: 20px;
   background-color: #eeeeee;
   margin-top: 5%;
@@ -55,6 +55,9 @@ button {
   font-size: small;
   color: black;
   font-weight: 500;
+}
+.answer-item:active {
+  background-color: grey;
 }
 .next-question {
   width: 30%;
@@ -90,19 +93,57 @@ input {
   margin: auto;
   margin-top: 15px;
 }
-.steps-item {
-  border: 1px solid #d8b14d;
-  border-radius: 5px;
-  width: 20%;
-  height: 3px;
-  background-color: #d8b14d;
-  margin-left: 1%;
-}
-.steps-item-1 {
+
+.step-item {
   border: 1px solid #eeeeee;
   border-radius: 5px;
   width: 25%;
   height: 3px;
   background-color: #eeeeee;
   margin-left: 1%;
+}
+.active {
+  border: 1px solid #d8b14d;
+
+  background-color: #d8b14d;
+}
+.sonuc {
+  width: 30vh;
+  height: 50vh;
+  border: 2px solid grey;
+  border-radius: 10px;
+  margin: auto;
+  padding: 20% 50%;
+}
+.result {
+  margin: auto;
+  margin-bottom: 10%;
+  padding: 20%;
+  font-size: 20px;
+  width: 50%;
+  height: 10vh;
+}
+.login{
+  width: 50%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  
+}
+input{
+  border: 2px solid #d8b14d;
+  border-radius: 8px;
+  margin-top: 5%;
+  padding: 5px;
+}
+.kayit{
+  border: 2px  #d8b14d;
+  border-radius: 8px;
+  margin-top: 5%;
+  padding: 10px 20px;
+  color: whitesmoke;
+  background-color: #634908 ;
 }

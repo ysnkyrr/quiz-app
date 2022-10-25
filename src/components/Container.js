@@ -10,10 +10,16 @@ export default function Container() {
     name: "",
     email: "",
   });
+  const [arre, setArre] = useState([
+    { name: "yasin", email: "ysnkyr06@gmail.com", trueAnswer: 3 },
+    { name: "asin", email: "ysnkyr06@gmail.com", trueAnswer: 4 },
+    { name: "sin", email: "ysnkyr06@gmail.com", trueAnswer: 1 },
+  ]);
 
   useEffect(() => {
     const item = localStorage.getItem("counter");
     if (item) {
+      // setLoginItem(JSON.parse(item).name);
       setSecilmisSoru(JSON.parse(item).step);
       setDogruCevap(JSON.parse(item).totalCorrect);
     }
@@ -21,13 +27,26 @@ export default function Container() {
 
   function sonrakiSoruu() {
     const sonrakiSoru = secilmisSoru + 1;
-    currentAnswer && setDogruCevap(dugruCevap + 1);
-    setSecilmisSoru(sonrakiSoru);
-    setCurrentAnswer(false);
     const items = {
+      ...loginItem,
       step: secilmisSoru + 1,
       totalCorrect: currentAnswer ? dugruCevap + 1 : dugruCevap,
     };
+    currentAnswer && setDogruCevap(dugruCevap + 1);
+    setSecilmisSoru(sonrakiSoru);
+    setCurrentAnswer(false);
+
+    if (sorular.length === secilmisSoru + 1) {
+      setArre([
+        ...arre,
+        {
+          name: loginItem.name,
+          email: loginItem.email,
+          trueAnswer: dugruCevap,
+        },
+      ]);
+      localStorage.removeItem("counter");
+    }
     localStorage.setItem("counter", JSON.stringify(items));
   }
   const refresh = () => {
@@ -130,6 +149,21 @@ export default function Container() {
         ) : (
           <>
             <div className="result">
+              <aside className="arrangement">
+                <h3>Arrangement</h3>
+                <div className="arrangement-items">
+                  <div className="arrangement-item">
+                    {arre
+                      .slice(-3)
+                      .reverse()
+                      .map((item, index) => (
+                        <h4 key={index}>
+                          {item.name} : {sorular.length}/{item.trueAnswer}
+                        </h4>
+                      ))}
+                  </div>
+                </div>
+              </aside>
               <h1>SINAV SONUCU</h1>
               <h2>
                 {sorular.length}/{dugruCevap}

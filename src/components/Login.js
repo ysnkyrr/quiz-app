@@ -1,6 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import SoruEkle from "./SoruEkle";
 
-export default function Login({ loginItem, setLoginItem }) {
+
+export default function Login({ loginItem, setLoginItem , ekleSoru ,sorular }) {
   const sing = () => {
     if (loginItem.name.length >= 3 && loginItem.email.length >= 7) {
       setLoginItem((loginItem) => ({ ...loginItem, isLogin: true }));
@@ -9,6 +11,12 @@ export default function Login({ loginItem, setLoginItem }) {
     }
   };
   
+  const pushQuestion = () => {
+    console.log("first")
+    
+      {<SoruEkle />}
+    
+  }
 
   return (
     <div className="login">
@@ -30,6 +38,7 @@ export default function Login({ loginItem, setLoginItem }) {
       <button onKey className="kayit" onClick={sing}>
         Kayıt Ol
       </button>
+      
     </div>
   );
 }

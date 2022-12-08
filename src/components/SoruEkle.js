@@ -1,31 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
-function SoruEkle({ setSorular }) {
+import { MainContext } from "../store";
+import { postQue } from "../store/actions/questions";
+
+function SoruEkle() {
+  const { dispatch, state } = useContext(MainContext);
   const [pushQue, setPushQue] = useState({
-    soru: "",
-    cevaplar: [
-      { cevap: "", dogru: true },
-      { cevap: "", dogru: false },
-      { cevap: "", dogru: false },
-      { cevap: "", dogru: false },
+    question: "",
+    answers: [
+      { answer: "", isCorrect: true },
+      { answer: "", isCorrect: false },
+      { answer: "", isCorrect: false },
+      { answer: "", isCorrect: false },
     ],
   });
-
-  const setAnswer = (index, cvp) => {
-    const obj = [...pushQue.cevaplar];
-    obj[index] = { cevap: cvp, dogru: false };
-    setPushQue((item) => ({ ...item, cevaplar: obj }));
-  };
   console.log(pushQue);
+  const setAnswer = (index, cvp) => {
+    const obj = [...pushQue.answers];
+    obj[index] = { answer: cvp, isCorrect: false };
+    setPushQue((item) => ({ ...item, answers: obj }));
+  };
+  const addQue = () => {
+    postQue(dispatch, pushQue);
+  };
+  // useEffect(() => {
+  //   const init = async () => {
+  //     await postQue(dispatch);
+  //   };
+  //   init();
+  // }, []);
   return (
-    <div setSorular={setSorular} className="pushQue">
+    <div className="pushQue">
       <input
         type="text"
         placeholder="Soru"
         onChange={(e) =>
-          setPushQue((soru) => ({
-            ...soru,
-            soru: e.target.value,
+          setPushQue((question) => ({
+            ...question,
+            question: e.target.value,
           }))
         }
       />
@@ -51,12 +63,7 @@ function SoruEkle({ setSorular }) {
         onChange={(e) => setAnswer(3, e.target.value)}
       />
 
-      <button
-      className="pushQue-btn"
-        onClick={() => {
-          setSorular((sorular) => [...sorular, pushQue]);
-        }}
-      >
+      <button className="pushQue-btn" onClick={addQue}>
         {" "}
         Ekle
       </button>

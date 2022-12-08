@@ -1,17 +1,7 @@
 body {
   text-align: center;
   font-family: Lato, sans-serif;
-  background: #f0c27b; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #4b1248,
-    #f0c27b
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #4b1248,
-    #f0c27b
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #b7c4cf;
 }
 .container {
   margin: auto;
@@ -26,15 +16,15 @@ body {
 .container-item {
   width: 80vh;
 
-  background: whitesmoke;
+  background: #d7c0ae;
   margin: auto;
   margin-top: 4%;
-  border: 2px solid whitesmoke;
-  border-radius: 10px;
+  border: 2px solid #d7c0ae;
+  border-radius: 15px;
 }
 .whQuestion {
   font-size: small;
-  color: #d8b14d;
+  color: #d7c0ae;
   font-weight: 600;
 }
 .question {
@@ -74,8 +64,8 @@ button {
   height: auto;
   padding: 2%;
   margin-top: 10%;
-  background-color: #d8b14d;
-  border: 2px solid #d8b14d;
+  background-color: #634908;
+  border: 2px solid #634908;
   border-radius: 5px;
   color: whitesmoke;
   margin-bottom: 15%;
@@ -113,9 +103,9 @@ input {
   margin-left: 1%;
 }
 .active {
-  border: 1px solid #d8b14d;
+  border: 1px solid #d7c0ae;
 
-  background-color: #d8b14d;
+  background-color: #d7c0ae;
 }
 .sonuc {
   width: 30vh;
@@ -142,17 +132,18 @@ input {
   align-items: center;
   margin: auto;
   margin-top: 3%;
-  border: 3px solid #c9ffbf;
-  border-radius: 5px;
+  border: 3px solid #d7c0ae;
+  border-radius: 15px;
+  background-color: #d7c0ae;
 }
 input {
-  border: 2px solid #d8b14d;
+  border: 2px solid #d7c0ae;
   border-radius: 8px;
   margin-top: 5%;
   padding: 5px;
 }
 .kayit {
-  border: 2px #d8b14d;
+  border: 2px #d7c0ae;
   border-radius: 8px;
   margin-top: 5%;
   padding: 10px 20px;
@@ -163,8 +154,8 @@ input {
   width: 65%;
   height: auto;
   margin: auto;
-
-  border: 4px solid #c9ffbf;
+  background-color: #d7c0ae;
+  border: 4px solid #d7c0ae;
   border-radius: 8px;
 
   color: whitesmoke;
@@ -189,21 +180,11 @@ nav {
   justify-content: space-between;
 
   border-radius: 3px;
-  background: #606c88; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #3f4c6b,
-    #606c88
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #3f4c6b,
-    #606c88
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #eee3cb;
 }
 .nav-link {
   text-decoration: none;
-  color: #eeeeee;
+  color: #967e76;
   font-weight: 900;
   margin: 0 5%;
 }
@@ -213,23 +194,24 @@ nav {
   border-radius: 5px;
 }
 .pushQue {
-  width: 50%;
+  width: 40%;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 3px solid #c9ffbf;
+  border: 3px solid #d7c0ae;
   border-radius: 5px;
   margin-top: 3%;
+  background-color: #d7c0ae;
 }
 .pushQue-btn {
   width: 20%;
   height: auto;
   padding: 1%;
   margin-top: 2%;
-  background-color: #d8b14d;
-  border: 2px solid #d8b14d;
-  border-radius: 5px;
+  background-color: #634908;
+  border: 2px solid #634908;
+  border-radius: 15px;
   color: whitesmoke;
   margin-bottom: 2%;
   margin-right: 2%;
@@ -239,9 +221,50 @@ nav {
   height: auto;
   padding: 2%;
   margin-top: 10%;
-  background-color: #d8b14d;
-  border: 2px solid #d8b14d;
+  background-color: #634908;
+  border: 2px solid #634908;
   border-radius: 5px;
   color: whitesmoke;
   margin-bottom: 15%;
+}
+.questions {
+  width: 80%;
+  margin: auto;
+}
+.questions-item {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #d7c0ae;
+  border-radius: 5px;
+  margin-bottom: 2%;
+  background-color: #d7c0ae;
+}
+.buttons {
+  width: 250px;
+  margin: auto;
+  margin-right: 1%;
+}
+.change-btn {
+  width: 30%;
+  height: 50%;
+  margin: auto;
+  background-color: #634908;
+  border: 2px solid #634908;
+  border-radius: 5px;
+  color: whitesmoke;
+  margin-right: 2%;
+}
+.remove-btn {
+  width: 30%;
+  height: 50%;
+  margin: auto;
+  background-color: #634908;
+  border: 2px solid #634908;
+  border-radius: 5px;
+  color: whitesmoke;
+}
+.questions-item-p {
+  font-size: 12px;
+  margin-left: 2%;
+  color: #634908;
 }

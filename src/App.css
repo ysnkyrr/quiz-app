@@ -253,6 +253,8 @@ nav {
   border-radius: 5px;
   color: whitesmoke;
   margin-right: 2%;
+  text-decoration: none;
+  font-size: 12px;
 }
 .remove-btn {
   width: 30%;

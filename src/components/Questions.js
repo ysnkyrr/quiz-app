@@ -31,6 +31,7 @@ function Questions() {
         {state.questions.map((item, index) => (
           <div className="questions-item">
             <p className="questions-item-p">{item.question}</p>
+            
             <div className="buttons">
               <Link className="change-btn" to={`/Sorular/${item.id}`}>
                 Düzenle

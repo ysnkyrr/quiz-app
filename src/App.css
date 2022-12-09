@@ -270,3 +270,7 @@ nav {
   margin-left: 2%;
   color: #634908;
 }
+.answer-radio-btn{
+  display: flex;
+  flex-direction: row-reverse;
+}

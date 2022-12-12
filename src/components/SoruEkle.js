@@ -2,6 +2,8 @@ import React, { useState, useContext, useEffect } from "react";
 
 import { MainContext } from "../store";
 import { postQue } from "../store/actions/questions";
+import { Link } from "react-router-dom";
+import Quiz from "./Quiz";
 
 function SoruEkle() {
   const { dispatch, state } = useContext(MainContext);
@@ -29,6 +31,8 @@ function SoruEkle() {
   };
   const addQue = () => {
     postQue(dispatch, pushQue);
+    setInterval(() => window.location.reload(false), 500);
+    alert("Soru başarıyla eklendi");
   };
   // useEffect(() => {
   //   const init = async () => {
@@ -105,6 +109,9 @@ function SoruEkle() {
       <button className="pushQue-btn" onClick={addQue}>
         {" "}
         Ekle
+        {/* <Link className="back-to-quiz" to="/">
+          EKLE
+        </Link> */}
       </button>
     </div>
   );

@@ -215,6 +215,7 @@ nav {
   color: whitesmoke;
   margin-bottom: 2%;
   margin-right: 2%;
+  text-decoration: none;
 }
 .refresh-btn {
   width: 30%;
@@ -270,7 +271,11 @@ nav {
   margin-left: 2%;
   color: #634908;
 }
-.answer-radio-btn{
+.answer-radio-btn {
   display: flex;
   flex-direction: row-reverse;
+}
+.back-to-quiz {
+  text-decoration: none;
+  color: #d7c0ae;
 }

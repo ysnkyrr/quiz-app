@@ -1,8 +1,9 @@
 import React from "react";
-import { useEffect, useState, useContext } from "react";
+import { useEffect,  useContext } from "react";
 import { Link } from "react-router-dom";
 import { MainContext } from "../store";
-import { deleteQue, getQuiz, postQue } from "../store/actions/questions";
+import { deleteQue, getQuiz } from "../store/actions/questions";
+import Layout from "./Layout/Layout";
 
 function Questions() {
   const { dispatch, state } = useContext(MainContext);
@@ -26,27 +27,29 @@ function Questions() {
   };
 
   return (
-    <div className="appp">
-      <div className="questions">
-        {state.questions.map((item, index) => (
-          <div className="questions-item">
-            <p className="questions-item-p">{item.question}</p>
-            
-            <div className="buttons">
-              <Link className="change-btn" to={`/Sorular/${item.id}`}>
-                Düzenle
-              </Link>
-              <button
-                className="remove-btn"
-                onClick={() => deleteQueAction(item.id)}
-              >
-                Sil
-              </button>
+    <Layout>
+      <div className="appp">
+        <div className="questions">
+          {state.questions.map((item, index) => (
+            <div className="questions-item">
+              <p className="questions-item-p">{item.question}</p>
+
+              <div className="buttons">
+                <Link className="change-btn" to={`/Sorular/${item.id}`}>
+                  Düzenle
+                </Link>
+                <button
+                  className="remove-btn"
+                  onClick={() => deleteQueAction(item.id)}
+                >
+                  Sil
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 

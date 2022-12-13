@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { MainContext } from "../store";
 import { changeQue, getQuiz } from "../store/actions/questions";
-
+import Layout from "./Layout/Layout";
 
 function Change() {
   const { dispatch, state } = useContext(MainContext);
@@ -21,7 +21,7 @@ function Change() {
     };
     init();
   }, []);
-  
+
   const setAnswer = (index, cvp) => {
     const obj = [...changeQuestions.answers];
     obj[index] = { answer: cvp, isCorrect: false };
@@ -29,52 +29,56 @@ function Change() {
   };
   const changeQueAction = async () => {
     await changeQue(dispatch, changeQuestions);
-    
-  }
+  };
 
   return (
-    <div>
-      <div className="pushQue">
-        <input
-          value={changeQuestions?.question}
-          type="text"
-          placeholder="Soru"
-          onChange={(e) =>
-            setChangeQuestions((question) => ({
-              ...question,
-              question: e.target.value,
-            }))
-          }
-        />
+    <Layout>
+      <div>
+        <div className="pushQue">
+          <input
+            value={changeQuestions?.question}
+            type="text"
+            placeholder="Soru"
+            onChange={(e) =>
+              setChangeQuestions((question) => ({
+                ...question,
+                question: e.target.value,
+              }))
+            }
+          />
 
-        <input
-          value={changeQuestions?.answers?.[0].answer}
-          type="text"
-          placeholder="Cevap"
-          onChange={(e) => setAnswer(0, e.target.value)}
-        />
-        <input
-          value={changeQuestions?.answers?.[1].answer}
-          type="text"
-          placeholder="Cevap"
-          onChange={(e) => setAnswer(1, e.target.value)}
-        />
-        <input
-          value={changeQuestions?.answers?.[2].answer}
-          type="text"
-          placeholder="Cevap"
-          onChange={(e) => setAnswer(2, e.target.value)}
-        />
-        <input
-          value={changeQuestions?.answers?.[3].answer}
-          type="text"
-          placeholder="Cevap"
-          onChange={(e) => setAnswer(3, e.target.value)}
-        />
+          <input
+            value={changeQuestions?.answers?.[0].answer}
+            type="text"
+            placeholder="Cevap"
+            onChange={(e) => setAnswer(0, e.target.value)}
+          />
+          <input
+            value={changeQuestions?.answers?.[1].answer}
+            type="text"
+            placeholder="Cevap"
+            onChange={(e) => setAnswer(1, e.target.value)}
+          />
+          <input
+            value={changeQuestions?.answers?.[2].answer}
+            type="text"
+            placeholder="Cevap"
+            onChange={(e) => setAnswer(2, e.target.value)}
+          />
+          <input
+            value={changeQuestions?.answers?.[3].answer}
+            type="text"
+            placeholder="Cevap"
+            onChange={(e) => setAnswer(3, e.target.value)}
+          />
 
-        <button className="pushQue-btn" onClick={changeQueAction}> Ekle</button>
+          <button className="pushQue-btn" onClick={changeQueAction}>
+            {" "}
+            Ekle
+          </button>
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 

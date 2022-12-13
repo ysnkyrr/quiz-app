@@ -1,6 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;1,100;1,300&display=swap");
 body {
   text-align: center;
-  font-family: Lato, sans-serif;
+  font-family: "Roboto", sans-serif;
   background: #b7c4cf;
 }
 .container {
@@ -168,7 +169,7 @@ input {
   border-radius: 5px;
   text-decoration: none;
 }
-nav {
+.nav {
   display: flex;
   margin: 0;
   width: 80%;
@@ -180,7 +181,7 @@ nav {
   justify-content: space-between;
 
   border-radius: 3px;
-  background: #eee3cb;
+  background: #d7c0ae;
 }
 .nav-link {
   text-decoration: none;
@@ -246,20 +247,22 @@ nav {
   margin-right: 1%;
 }
 .change-btn {
-  width: 30%;
+  width: 50px;
   height: 50%;
   margin: auto;
+  padding: 0;
   background-color: #634908;
   border: 2px solid #634908;
   border-radius: 5px;
   color: whitesmoke;
   margin-right: 2%;
+  margin-top: 6px;
   text-decoration: none;
-  font-size: 12px;
 }
 .remove-btn {
   width: 30%;
   height: 50%;
+  padding: 1%;
   margin: auto;
   background-color: #634908;
   border: 2px solid #634908;

@@ -1,4 +1,4 @@
-import { ADD_QUE, SET_QUIZ } from "../../types";
+import { SET_QUIZ, IS_LOGIN } from "../../types";
 
 export const getQuiz = (dispatch) => {
   fetch("https://6350088478563c1d82b6fafd.mockapi.io/questions", {
@@ -76,11 +76,17 @@ export const deleteQue = (id) => {
       // .then((response) => response.json())
       .then(async (response) => {
         const res = await response.json();
-        return response.status
-        
+        return response.status;
       })
       .catch((error) => {
         console.error("Error:", error);
       })
   );
+};
+
+export const isLoginChange = (dispatch, data) => {
+  return dispatch({
+    type: IS_LOGIN,
+    payload: data,
+  });
 };

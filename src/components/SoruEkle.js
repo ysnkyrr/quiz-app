@@ -1,9 +1,10 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 
 import { MainContext } from "../store";
 import { postQue } from "../store/actions/questions";
-import { Link } from "react-router-dom";
-import Quiz from "./Quiz";
+
+
+import Layout from "./Layout/Layout";
 
 function SoruEkle() {
   const { dispatch, state } = useContext(MainContext);
@@ -42,78 +43,82 @@ function SoruEkle() {
   // }, []);
 
   return (
-    <div className="pushQue">
-      <input
-        type="text"
-        placeholder="Soru"
-        onChange={(e) =>
-          setPushQue((question) => ({
-            ...question,
-            question: e.target.value,
-          }))
-        }
-      />
-      <div className="answer-radio-btn">
+    <Layout>
+      <div className="pushQue">
+        <h3>Aşağıdaki alana eklemek istediğiniz soruyu ve cevaplarını yazabilirsiniz.</h3>
+        <h4>İşaretlediğiniz soru doğru cevap olarak kabul edilecektir.</h4>
         <input
           type="text"
-          placeholder="Cevap"
-          onChange={(e) => setAnswer(0, e.target.value)}
+          placeholder="Soru"
+          onChange={(e) =>
+            setPushQue((question) => ({
+              ...question,
+              question: e.target.value,
+            }))
+          }
         />
-        <input
-          type="radio"
-          value=""
-          name="isCorrect"
-          onChange={(e) => changeValue(0, e.target.value)}
-        />
-      </div>
-      <div className="answer-radio-btn">
-        <input
-          type="text"
-          placeholder="Cevap"
-          onChange={(e) => setAnswer(1, e.target.value)}
-        />
-        <input
-          type="radio"
-          value=""
-          name="isCorrect"
-          onChange={(e) => changeValue(1, e.target.value)}
-        />
-      </div>
-      <div className="answer-radio-btn">
-        <input
-          type="text"
-          placeholder="Cevap"
-          onChange={(e) => setAnswer(2, e.target.value)}
-        />
-        <input
-          type="radio"
-          value=""
-          name="isCorrect"
-          onChange={(e) => changeValue(2, e.target.value)}
-        />
-      </div>
-      <div className="answer-radio-btn">
-        <input
-          type="text"
-          placeholder="Cevap"
-          onChange={(e) => setAnswer(3, e.target.value)}
-        />
-        <input
-          type="radio"
-          value=""
-          name="isCorrect"
-          onChange={(e) => changeValue(3, e.target.value)}
-        />
-      </div>
+        <div className="answer-radio-btn">
+          <input
+            type="text"
+            placeholder="Cevap"
+            onChange={(e) => setAnswer(0, e.target.value)}
+          />
+          <input
+            type="radio"
+            value=""
+            name="isCorrect"
+            onChange={(e) => changeValue(0, e.target.value)}
+          />
+        </div>
+        <div className="answer-radio-btn">
+          <input
+            type="text"
+            placeholder="Cevap"
+            onChange={(e) => setAnswer(1, e.target.value)}
+          />
+          <input
+            type="radio"
+            value=""
+            name="isCorrect"
+            onChange={(e) => changeValue(1, e.target.value)}
+          />
+        </div>
+        <div className="answer-radio-btn">
+          <input
+            type="text"
+            placeholder="Cevap"
+            onChange={(e) => setAnswer(2, e.target.value)}
+          />
+          <input
+            type="radio"
+            value=""
+            name="isCorrect"
+            onChange={(e) => changeValue(2, e.target.value)}
+          />
+        </div>
+        <div className="answer-radio-btn">
+          <input
+            type="text"
+            placeholder="Cevap"
+            onChange={(e) => setAnswer(3, e.target.value)}
+          />
+          <input
+            type="radio"
+            value=""
+            name="isCorrect"
+            onChange={(e) => changeValue(3, e.target.value)}
+          />
+        </div>
 
-      <button className="pushQue-btn" onClick={addQue}>
-        {" "}
-        Ekle
-        {/* <Link className="back-to-quiz" to="/">
+        <button className="pushQue-btn" onClick={addQue}>
+          {" "}
+          Ekle
+          {/* <Link className="back-to-quiz" to="/">
           EKLE
         </Link> */}
-      </button>
-    </div>
+        </button>
+      </div>
+    </Layout>
   );
 }
 

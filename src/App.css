@@ -185,7 +185,7 @@ input {
 }
 .nav-link {
   text-decoration: none;
-  color: #967e76;
+  color: #434242;
   font-weight: 900;
   margin: 0 5%;
 }
@@ -236,10 +236,13 @@ input {
 .questions-item {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   border: 2px solid #d7c0ae;
   border-radius: 5px;
   margin-bottom: 2%;
   background-color: #d7c0ae;
+  font-size: 14px;
 }
 .buttons {
   width: 250px;
@@ -251,8 +254,8 @@ input {
   height: 50%;
   margin: auto;
   padding: 0;
-  background-color: #634908;
-  border: 2px solid #634908;
+  background-color: #222222;
+  border: 2px solid #222222;
   border-radius: 5px;
   color: whitesmoke;
   margin-right: 2%;
@@ -264,15 +267,17 @@ input {
   height: 50%;
   padding: 1%;
   margin: auto;
-  background-color: #634908;
-  border: 2px solid #634908;
+  background-color: #222222;
+  border: 2px solid #222222;
   border-radius: 5px;
   color: whitesmoke;
+  margin-right: 0%;
 }
 .questions-item-p {
+  width: 70%;
   font-size: 12px;
   margin-left: 2%;
-  color: #634908;
+  color: #434242;
 }
 .answer-radio-btn {
   display: flex;

@@ -21,9 +21,7 @@ function Questions() {
     const refreshQue = await deleteQue(id);
     if (refreshQue === 200) {
       await getQuiz(dispatch)
-      console.log("yasin");
     }
-    console.log("asd", refreshQue);
   };
 
   return (

@@ -34,7 +34,6 @@ export const postQue = (dispatch, data) => {
       //   type: ADD_QUE,
       //   payload: data,
       // });
-      console.log(data);
       return data;
     })
     .catch((error) => {
@@ -43,7 +42,6 @@ export const postQue = (dispatch, data) => {
 };
 
 export const changeQue = (dispatch, data) => {
-  console.log(data);
   fetch(`https://6350088478563c1d82b6fafd.mockapi.io/questions/${data.id}`, {
     method: "PUT", // or 'PUT'
     headers: {
@@ -57,7 +55,6 @@ export const changeQue = (dispatch, data) => {
       //   type: ADD_QUE,
       //   payload: data,
       // });
-      console.log(data);
       return data;
     })
     .catch((error) => {

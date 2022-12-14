@@ -17,8 +17,6 @@ function SoruEkle() {
       { answer: "", isCorrect: false },
     ],
   });
-  console.log(pushQue);
-
   const setAnswer = (index, cvp) => {
     const obj = [...pushQue.answers];
     obj[index] = { answer: cvp, isCorrect: false };
@@ -28,7 +26,6 @@ function SoruEkle() {
     const crt = [...pushQue.answers];
     crt[index] = { ...crt[index], isCorrect: true };
     setPushQue((item) => ({ ...item, answers: crt }));
-    console.log("crt", crt);
   };
   const addQue = () => {
     postQue(dispatch, pushQue);

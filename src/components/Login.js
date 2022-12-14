@@ -18,35 +18,26 @@ export default function Login() {
     username: "admin",
     password: "admin123",
   };
-  useEffect(()=> {
+  useEffect(() => {
     if (state.isLogin) {
       navigate("/SoruEkle");
     }
-  },[])
+  }, []);
   const sing = () => {
-    console.log(loginItem);
     if (
       (loginItem.password === loginAd.password) |
       (loginItem.name === loginAd.username)
     ) {
-      
-      console.log("oldu");
-      isLoginChange(dispatch,true);
+      isLoginChange(dispatch, true);
       navigate("/SoruEkle");
-      
-      
     } else {
       alert("Düzgün gir ");
     }
     if (state.isLogin === true) {
-      console.log("yasin")
     }
   };
-    console.log("1",state.isLogin);
 
   const pushQuestion = () => {
-    console.log("first");
-
     {
       <SoruEkle />;
     }
@@ -77,7 +68,7 @@ export default function Login() {
           }
         />
         <button onKey className="kayit" onClick={sing}>
-          Kayıt Ol
+          Giriş Yap
         </button>
       </div>
     </Layout>

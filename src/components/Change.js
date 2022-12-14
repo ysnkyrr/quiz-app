@@ -1,11 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { MainContext } from "../store";
 import { changeQue, getQuiz } from "../store/actions/questions";
 import Layout from "./Layout/Layout";
 
 function Change() {
+  const navigate = useNavigate();
   const { dispatch, state } = useContext(MainContext);
   const params = useParams();
   const [changeQuestions, setChangeQuestions] = useState({});
@@ -30,6 +31,11 @@ function Change() {
   const changeQueAction = async () => {
     await changeQue(dispatch, changeQuestions);
   };
+  useEffect(() => {
+    if (!state.isLogin) {
+      navigate("/login");
+    }
+  }, []);
 
   return (
     <Layout>

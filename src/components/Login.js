@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import SoruEkle from "./SoruEkle";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Layout from "./Layout/Layout";
 
 import { MainContext } from "../store";
@@ -10,8 +10,6 @@ export default function Login() {
   const { dispatch, state } = useContext(MainContext);
   const [loginItem, setLoginItem] = useState({
     isLogin: false,
-    name: "",
-    password: "",
   });
   const navigate = useNavigate();
   const loginAd = {
@@ -25,15 +23,13 @@ export default function Login() {
   }, []);
   const sing = () => {
     if (
-      (loginItem.password === loginAd.password) |
-      (loginItem.name === loginAd.username)
+      loginItem.password === loginAd.password &&
+      loginItem.name === loginAd.username
     ) {
       isLoginChange(dispatch, true);
       navigate("/SoruEkle");
     } else {
       alert("Düzgün gir ");
-    }
-    if (state.isLogin === true) {
     }
   };
 

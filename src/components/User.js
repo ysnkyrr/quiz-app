@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export default function Login({ loginItem, setLoginItem, ekleSoru, sorular }) {
   const sing = () => {
     if (loginItem.name.length >= 3 && loginItem.email.length >= 7) {
@@ -9,8 +8,6 @@ export default function Login({ loginItem, setLoginItem, ekleSoru, sorular }) {
       alert("Düzgün gir ");
     }
   };
-
-  
 
   return (
     <div className="login">

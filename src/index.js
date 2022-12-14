@@ -11,7 +11,7 @@ import { initialState } from "./store/state";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Store>
-    <BrowserRouter>
+    <BrowserRouter basename={"/quiz"}>
       <React.StrictMode>
         {/* <Provider store={store}> */}
         <App />

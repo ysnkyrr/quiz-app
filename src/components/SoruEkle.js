@@ -1,12 +1,13 @@
 import React, { useState, useContext } from "react";
-
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { MainContext } from "../store";
 import { postQue } from "../store/actions/questions";
-
 
 import Layout from "./Layout/Layout";
 
 function SoruEkle() {
+  const navigate = useNavigate();
   const { dispatch, state } = useContext(MainContext);
   const [pushQue, setPushQue] = useState({
     question: "",
@@ -38,11 +39,19 @@ function SoruEkle() {
   //   };
   //   init();
   // }, []);
+  useEffect(() => {
+    if (!state.isLogin) {
+      navigate("/login");
+    }
+  }, []);
 
   return (
     <Layout>
       <div className="pushQue">
-        <h3>Aşağıdaki alana eklemek istediğiniz soruyu ve cevaplarını yazabilirsiniz.</h3>
+        <h3>
+          Aşağıdaki alana eklemek istediğiniz soruyu ve cevaplarını
+          yazabilirsiniz.
+        </h3>
         <h4>İşaretlediğiniz soru doğru cevap olarak kabul edilecektir.</h4>
         <input
           type="text"

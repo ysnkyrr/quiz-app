@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { MainContext } from "../store";
 import { getQuiz } from "../store/actions/questions";
 import Layout from "./Layout/Layout";
-import User from "./User";
+import User from "./User"
 
 export default function Quiz() {
   const { dispatch, state } = useContext(MainContext);

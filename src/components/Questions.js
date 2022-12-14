@@ -1,11 +1,12 @@
 import React from "react";
-import { useEffect,  useContext } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useContext  } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { MainContext } from "../store";
 import { deleteQue, getQuiz } from "../store/actions/questions";
 import Layout from "./Layout/Layout";
 
 function Questions() {
+  const navigate = useNavigate();
   const { dispatch, state } = useContext(MainContext);
 
   useEffect(() => {
@@ -15,12 +16,16 @@ function Questions() {
       }
     };
     init();
+    if (!state.isLogin) {
+      console.log("yasi");
+      navigate("/login");
+    }
   }, []);
 
   const deleteQueAction = async (id) => {
     const refreshQue = await deleteQue(id);
     if (refreshQue === 200) {
-      await getQuiz(dispatch)
+      await getQuiz(dispatch);
     }
   };
 

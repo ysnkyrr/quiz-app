@@ -9,15 +9,13 @@ import Change from "./components/Change";
 function App() {
   return (
     <div className="app">
-      
-        <Routes>
-          <Route path="/Sorular/:id" element={<Change />} />
-          <Route path="/Sorular" element={<Questions />} />
-          <Route path="/SoruEkle" element={<SoruEkle />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Quiz />} />
-        </Routes>
-      
+      <Routes >
+        <Route path="/Sorular/:id" element={<Change />} />
+        <Route path="/Sorular" element={<Questions />} />
+        <Route path="/SoruEkle" element={<SoruEkle />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Quiz />} />
+      </Routes>
     </div>
   );
 }

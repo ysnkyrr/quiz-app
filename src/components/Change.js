@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { MainContext } from "../store";
-import { changeQue, getQuiz } from "../store/actions/questions";
+import { changeQue, getQuiz, isLoginChange } from "../store/actions/questions";
 import Layout from "./Layout/Layout";
 
 function Change() {
@@ -13,6 +13,15 @@ function Change() {
   useEffect(() => {
     const init = async () => {
       //if control check
+      if (typeof window !== undefined) {
+        const checkhLogin = localStorage.getItem("isLogin");
+        console.log(checkhLogin);
+        if (!!checkhLogin) {
+          isLoginChange(dispatch, true);
+        } else {
+          navigate("/login");
+        }
+      }
       if (!!state.questions) {
         await getQuiz(dispatch);
         setChangeQuestions(
@@ -30,18 +39,20 @@ function Change() {
   };
   const changeQueAction = async () => {
     await changeQue(dispatch, changeQuestions);
+    alert("Soru başarıyla değiştirildi.");
+    navigate("/Sorular");
   };
-  useEffect(() => {
-    if (!state.isLogin) {
-      navigate("/login");
-    }
-  }, []);
+  // useEffect(() => {
+  //   alert("Soru başarıyla düzenlendi.");
+  //   navigate("/Sorular");
+  // }, [changeQueAction]);
 
   return (
     <Layout>
       <div>
         <div className="pushQue">
-          <input
+          <textarea
+            className="input-width"
             value={changeQuestions?.question}
             type="text"
             placeholder="Soru"
@@ -78,9 +89,8 @@ function Change() {
             onChange={(e) => setAnswer(3, e.target.value)}
           />
 
-          <button className="pushQue-btn" onClick={changeQueAction}>
-            {" "}
-            Ekle
+          <button className="pushQue-btn btn-weight" onClick={changeQueAction}>
+            Düzenle
           </button>
         </div>
       </div>

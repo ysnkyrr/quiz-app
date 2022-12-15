@@ -9,6 +9,7 @@ function Layout({ children }) {
   const navigate = useNavigate();
   const { dispatch, state } = useContext(MainContext);
   const logOut = () => {
+    localStorage.removeItem("isLogin");
     isLoginChange(dispatch, false);
     navigate("/login");
   };

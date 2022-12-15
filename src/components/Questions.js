@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useContext  } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MainContext } from "../store";
-import { deleteQue, getQuiz } from "../store/actions/questions";
+import { deleteQue, getQuiz, isLoginChange } from "../store/actions/questions";
 import Layout from "./Layout/Layout";
 
 function Questions() {
@@ -11,16 +11,26 @@ function Questions() {
 
   useEffect(() => {
     const init = async () => {
+      if (typeof window !== undefined) {
+        const checkhLogin = localStorage.getItem("isLogin");
+        console.log(checkhLogin);
+        if (!!checkhLogin) {
+         isLoginChange(dispatch, true);
+        }else{
+          navigate("/login");
+        }
+      }
+      
       if (!!state.questions) {
         await getQuiz(dispatch);
       }
     };
     init();
-    if (!state.isLogin) {
-      console.log("yasi");
-      navigate("/login");
-    }
+    
   }, []);
+
+  
+  
 
   const deleteQueAction = async (id) => {
     const refreshQue = await deleteQue(id);
@@ -38,7 +48,7 @@ function Questions() {
               <p className="questions-item-p">{item.question}</p>
 
               <div className="buttons">
-                <Link className="change-btn" to={`/Sorular/${item.id}`}>
+                <Link className="change-btn"  to={`/Sorular/${item.id}`}>
                   Düzenle
                 </Link>
                 <button

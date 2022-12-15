@@ -26,6 +26,7 @@ export default function Login() {
       loginItem.password === loginAd.password &&
       loginItem.name === loginAd.username
     ) {
+      localStorage.setItem("isLogin", true)
       isLoginChange(dispatch, true);
       navigate("/SoruEkle");
     } else {
@@ -42,7 +43,12 @@ export default function Login() {
   return (
     <Layout>
       <div className="login">
+        <p className="login-i">
+          Aşağıdaki alana sahip olduğunuz kullanıcı adı ve şifreyi girerek
+          uygulama içerisinde değişiklik yapabilirsiniz
+        </p>
         <input
+          className="password-c"
           type="text"
           placeholder="Name"
           onChange={(e) =>
@@ -53,6 +59,7 @@ export default function Login() {
           }
         />
         <input
+          className="password-c"
           onKeyDown={(e) => e.keyCode === 13 && sing(e)}
           type="password"
           placeholder="Password"

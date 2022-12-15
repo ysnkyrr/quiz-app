@@ -1,10 +1,13 @@
 import { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { MainContext } from "../store";
-import { getQuiz } from "../store/actions/questions";
+import { getQuiz, isLoginChange } from "../store/actions/questions";
 import Layout from "./Layout/Layout";
-import User from "./User"
+import User from "./User";
+import Button from "./Button.jsx";
 
 export default function Quiz() {
+  const navigate = useNavigate();
   const { dispatch, state } = useContext(MainContext);
   const [oneQuestion, setOneQuestion] = useState(0);
   const [dugruCevap, setDogruCevap] = useState(0);
@@ -23,8 +26,16 @@ export default function Quiz() {
   ]);
   useEffect(() => {
     const init = async () => {
-      await getQuiz(dispatch);
+      if (typeof window !== undefined) {
+        const checkhLogin = localStorage.getItem("isLogin");
+
+        await getQuiz(dispatch);
+        if (!!checkhLogin) {
+          isLoginChange(dispatch, true);
+        }
+      }
     };
+
     init();
   }, []);
 
@@ -67,9 +78,10 @@ export default function Quiz() {
   return (
     <Layout>
       <div className="appp">
-        {loginItem.isLogin === false ? (
+        {/* {loginItem.isLogin === false ? (
           <User loginItem={loginItem} setLoginItem={setLoginItem} />
-        ) : state.questions?.length > oneQuestion ? (
+        ) :  */}
+        {state.questions?.length > oneQuestion ? (
           <>
             <div className="steps">
               {state.questions?.map((item, index) => (
@@ -89,7 +101,9 @@ export default function Quiz() {
                 <p>QUESTİON</p>
               </div>
               <div className="question">
-                <p>{state.questions?.[oneQuestion].question}</p>
+                <p className="question-text">
+                  {state.questions?.[oneQuestion].question}
+                </p>
               </div>
               <div className="answer">
                 {state.questions?.[oneQuestion].answers.map(
@@ -104,7 +118,7 @@ export default function Quiz() {
                 )}
               </div>
               <button className="next-question" onClick={sonrakiSoruu}>
-                Next Question →<p></p>
+                <p>Next Question →</p>
               </button>
             </div>
           </>

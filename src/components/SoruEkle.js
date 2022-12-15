@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { MainContext } from "../store";
-import { postQue } from "../store/actions/questions";
+import { isLoginChange, postQue } from "../store/actions/questions";
 
 import Layout from "./Layout/Layout";
 
@@ -41,6 +41,14 @@ function SoruEkle() {
   // }, []);
   useEffect(() => {
     if (!state.isLogin) {
+      if (typeof window !== undefined) {
+        const checkhLogin = localStorage.getItem("isLogin")
+        console.log(checkhLogin)
+        if (!!checkhLogin  ) {
+
+          return isLoginChange(dispatch, true);
+        }
+      }
       navigate("/login");
     }
   }, []);
@@ -53,7 +61,8 @@ function SoruEkle() {
           yazabilirsiniz.
         </h3>
         <h4>İşaretlediğiniz soru doğru cevap olarak kabul edilecektir.</h4>
-        <input
+        <textarea
+          className="input-width"
           type="text"
           placeholder="Soru"
           onChange={(e) =>

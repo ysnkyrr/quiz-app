@@ -93,12 +93,12 @@ export default function Quiz() {
               ))}
             </div>
             <button className="previous-question" onClick={oncekiSoruu}>
-              Previous Question
+              Önceki Soru
             </button>
 
             <div className="container-item">
               <div className="whQuestion">
-                <p>QUESTİON</p>
+                <p>SORU</p>
               </div>
               <div className="question">
                 <p className="question-text">
@@ -118,7 +118,7 @@ export default function Quiz() {
                 )}
               </div>
               <button className="next-question" onClick={sonrakiSoruu}>
-                <p>Next Question →</p>
+                Sonraki Soru
               </button>
             </div>
           </>

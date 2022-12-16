@@ -19,7 +19,7 @@ function Layout({ children }) {
         {state.isLogin ? (
           <>
             <Link className="nav-link" to="/">
-              Quiz
+              Sınav
             </Link>
             <Link className="nav-link" to="/SoruEkle">
               Soru Ekle
@@ -29,16 +29,16 @@ function Layout({ children }) {
             </Link>
 
             <button onClick={logOut} className="nav-link" to="/login">
-              Log Out
+              Çıkış Yap
             </button>
           </>
         ) : (
           <>
             <Link className="nav-link" to="/">
-              Quiz
+              Sınav
             </Link>
             <Link className="nav-link" to="/login">
-              Login
+              Giriş Yap
             </Link>
           </>
         )}

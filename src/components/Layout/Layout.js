@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { MainContext } from "../../store";
 import { isLoginChange } from "../../store/actions/questions";
+import goto from "../images/uo-logo-white.png";
 
 function Layout({ children }) {
   const navigate = useNavigate();
@@ -18,6 +19,13 @@ function Layout({ children }) {
       <div className="nav">
         {state.isLogin ? (
           <>
+            <a
+              className="nav-link"
+              target="_blank"
+              href="https://www.yasinakyar.com/"
+            >
+              <img className="uo-logo" src={goto} alt="" />
+            </a>
             <Link className="nav-link" to="/">
               Sınav
             </Link>
@@ -34,6 +42,14 @@ function Layout({ children }) {
           </>
         ) : (
           <>
+            <a
+              className="nav-link"
+              target="_blank"
+              href="https://www.yasinakyar.com/"
+            >
+              <img className="uo-logo" src={goto} alt="" />
+            </a>
+
             <Link className="nav-link" to="/">
               Sınav
             </Link>

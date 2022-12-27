@@ -191,7 +191,7 @@ input {
 }
 .nav {
   display: flex;
-
+  font-size: 12px;
   width: 90%;
   height: 50px;
   margin: auto;
@@ -207,7 +207,7 @@ input {
   text-decoration: none;
   color: #434242;
   font-weight: 900;
-  margin: 0 5%;
+  margin: 0 5px;
 }
 .appp {
   width: 100%;
@@ -280,8 +280,8 @@ input {
   height: 50%;
   margin: auto;
   padding: 0;
-  background-color: #58B957;
-  border: 2px solid #58B957;
+  background-color: #58b957;
+  border: 2px solid #58b957;
   border-radius: 5px;
   color: whitesmoke;
   margin-right: 2%;
@@ -293,8 +293,8 @@ input {
   height: 50%;
 
   margin: auto;
-  background-color: #DB524B;
-  border: 2px solid #DB524B;
+  background-color: #db524b;
+  border: 2px solid #db524b;
   border-radius: 5px;
   color: whitesmoke;
   margin-right: 0%;
@@ -327,7 +327,7 @@ input {
   padding: 1% 1%;
   margin-top: 2%;
 }
-.uo-logo{
+.uo-logo {
   width: 50px;
   height: 50px;
 }
